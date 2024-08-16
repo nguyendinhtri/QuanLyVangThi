@@ -1,0 +1,88 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "dev": "nodemon --exec babel-node src/server.js",
+    "build": "pkg .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": "./src/server.js",
+  "pkg": {
+    "assets": [
+      "node_modules/axios/**/*"
+    ],
+    "scripts": [
+      "src/config/**/*.js",
+      "src/api/controllers/**/*.js",
+      "src/api/helpers/**/*.js",
+      "src/api/middlewares/**/*.js",
+      "src/api/models/**/*.js",
+      "src/api/routes/**/*.js",
+      "src/api/services/**/*.js",
+      "src/api/validations/**/*.js",
+      "src/server.js"
+    ],
+    "targets": [
+      "node16-linux-x64"
+    ],
+    "outputPath": "dist"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.18.9",
+    "@babel/preset-env": "^7.11.5",
+    "archiver": "^5.3.1",
+    "axios": "^0.27.2",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.0",
+    "cloudinary": "^1.30.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "cron": "^2.1.0",
+    "date-fns": "^2.28.0",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.8",
+    "exceljs": "^4.3.0",
+    "express": "^4.19.2",
+    "express-fileupload": "^1.4.0",
+    "force": "^0.0.3",
+    "google-auth-library": "^8.1.1",
+    "googleapis": "^105.0.0",
+    "http-errors": "^2.0.0",
+    "http-status-codes": "^2.2.0",
+    "install": "^0.13.0",
+    "joi": "^17.6.0",
+    "join": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.5",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.7.7",
+    "nodemon": "^2.0.19",
+    "npm": "^8.14.0",
+    "oas3-tools": "^2.2.3",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "pkg": "^5.8.1",
+    "twilio": "^3.79.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/node": "^7.18.9",
+    "@babel/preset-env": "^7.11.5",
+    "babel-cli": "^6.26.0",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
+    "sequelize": "^6.21.3",
+    "sequelize-cli": "^6.4.1",
+    "xlsx": "^0.18.5"
+  }
+}

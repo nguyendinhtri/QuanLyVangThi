@@ -4,41 +4,6 @@ const createError = require("http-errors");
 const { Op, QueryTypes } = require("sequelize");
 
 const userService = {
-  createUser: async (user) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const response = await db.Users.create({
-          ...user,
-        });
-
-        resolve({
-          status: response ? 200 : 404,
-          message: response
-            ? "Create user successfully!"
-            : "Error while creating user",
-          elements: response,
-        });
-      } catch (error) {
-        reject(error);
-      }
-    });
-  },
-  findByEmail: (email) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const response = await db.Users.findOne({ where: { email } });
-        resolve({
-          status: response ? 200 : 404,
-          message: response ? "User found successfully!" : "User not found",
-          elements: response,
-        });
-      } catch (error) {
-        reject(
-          createError.InternalServerError("Error while finding user by email")
-        );
-      }
-    });
-  },
   updateUser: async (userId, userData) => {
     return new Promise(async (resolve, reject) => {
       try {

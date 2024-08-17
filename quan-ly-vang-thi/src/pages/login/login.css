@@ -1,0 +1,12 @@
+.button {
+    margin-top: 20px;
+    background-color: rgb(30, 236, 30);
+    color: white;
+    border: none;
+    padding: 10px 0;  /* Điều chỉnh khoảng cách bên trong nút */
+    width: 250%;      /* Đặt chiều rộng nút */
+    max-width: 300px; /* Đặt chiều rộng tối đa của nút */
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* Canh giữa văn bản trong nút */
+}

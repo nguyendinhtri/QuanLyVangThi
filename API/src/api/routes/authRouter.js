@@ -3,10 +3,10 @@ const passport = require("passport");
 const router = require("express").Router();
 
 // Khởi tạo cấu hình Passport
-authController();
+authController.authController();
 // Route để bắt đầu quá trình xác thực với Google
 router.get(
-  "/auth/google",
+  "/google",
   passport.authenticate("google", {
     scope: ["profile", "email"],
   })
@@ -14,7 +14,7 @@ router.get(
 // Route để xử lý callback từ Google
 router.get(
   "/google/redirect",
-  passport.authenticate("google", { failureRedirect: "/login" }),
+  passport.authenticate("google", { session: false }),
   (req, res) => {
     // Profile người dùng hiện có sẵn trong req.user
     const user = req.user;

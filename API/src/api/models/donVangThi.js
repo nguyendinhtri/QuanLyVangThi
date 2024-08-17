@@ -36,10 +36,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      PHAN_HOI: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
     },
     {
       sequelize,

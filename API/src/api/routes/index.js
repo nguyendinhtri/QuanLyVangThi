@@ -10,7 +10,6 @@ let initWebRoutes = (app) => {
   router.use("/auth", require("./authRouter.js"));
   router.use("/user", require("./userRouter.js"));
   router.use("/lichThi", require("./lichThiRouter.js"));
-  router.use("/hocPhan", require("./hocPhanRouter.js"));
   router.use("/donVangThi", require("./donVangThiRouter.js"));
 
   router.get("/", (req, res) => {

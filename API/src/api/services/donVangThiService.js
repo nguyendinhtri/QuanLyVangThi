@@ -91,11 +91,6 @@ const donVangThiService = {
               include: [
                 {
                   model: db.Lich_Thi, // Bao gồm thông tin lịch thi liên quan
-                  include: [
-                    {
-                      model: db.Hoc_Phan, // Bao gồm thông tin học phần liên quan
-                    },
-                  ],
                 },
               ],
             },

@@ -11,13 +11,26 @@ module.exports = (sequelize, DataTypes) => {
       Lich_Thi.belongsTo(models.Users, {
         foreignKey: "USER_ID",
       });
-      Lich_Thi.hasMany(models.UserExam, {
-        foreignKey: "LICHTHI_ID",
+
+      Lich_Thi.belongsTo(models.Don_Vang_Thi, {
+        foreignKey: "DONVANGTHI_ID",
       });
     }
   }
   Lich_Thi.init(
     {
+      TEN_HOC_PHAN: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      GIANG_VIEN: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      SO_TIN_CHI: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       HINH_THUC_THI: {
         type: DataTypes.STRING,
         allowNull: false,

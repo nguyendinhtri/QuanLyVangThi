@@ -23,13 +23,7 @@ const lichThiService = {
   getAllLichThi: async () => {
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await db.Lich_Thi.findAll({
-          include: [
-            {
-              model: db.Hoc_Phan, // Bao gồm thông tin từ bảng Hoc_Phan
-            },
-          ],
-        });
+        const response = await db.Lich_Thi.findAll({});
         resolve({
           status: response ? 200 : 404,
           message: response
@@ -49,11 +43,6 @@ const lichThiService = {
           where: {
             ...query,
           },
-          include: [
-            {
-              model: db.Hoc_Phan, // Bao gồm thông tin từ bảng Hoc_Phan
-            },
-          ],
         });
         resolve({
           status: response ? 200 : 404,
@@ -74,11 +63,6 @@ const lichThiService = {
           where: {
             id: lichThiId,
           },
-          include: [
-            {
-              model: db.Hoc_Phan, // Bao gồm thông tin từ bảng Hoc_Phan
-            },
-          ],
         });
         resolve({
           status: response ? 200 : 404,
@@ -104,11 +88,6 @@ const lichThiService = {
           include: [
             {
               model: db.Lich_Thi,
-              include: [
-                {
-                  model: db.Hoc_Phan, // Bao gồm thông tin từ bảng Hoc_Phan
-                },
-              ],
             },
           ],
         });

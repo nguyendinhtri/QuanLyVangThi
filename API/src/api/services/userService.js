@@ -12,6 +12,7 @@ const userService = {
             id: userId,
           },
         });
+        // `response[0]` sẽ là số lượng bản ghi bị ảnh hưởng
         if (response[0] === 0) {
           resolve({
             status: 404,

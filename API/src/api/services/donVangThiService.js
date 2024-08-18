@@ -24,7 +24,18 @@ const donVangThiService = {
   getAllDonVangThi: async () => {
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await db.Don_Vang_Thi.findAll({});
+        const response = await db.Don_Vang_Thi.findAll({
+          include: [
+            {
+              model: db.Users, // Bao gồm thông tin lịch thi liên quan
+              include: [
+                {
+                  model: db.Lich_Thi, // Bao gồm thông tin lịch thi liên quan
+                },
+              ],
+            },
+          ],
+        });
         resolve({
           status: response ? 200 : 404,
           message: response

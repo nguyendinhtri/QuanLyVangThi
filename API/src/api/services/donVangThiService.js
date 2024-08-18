@@ -83,8 +83,8 @@ const donVangThiService = {
         const user = await db.Users.findOne({
           where: {
             id: userId,
-            attributes: ["MSV", "FULLNAME"],
           },
+          attributes: ["MSV", "FULLNAME"],
           include: [
             {
               model: db.Don_Vang_Thi,

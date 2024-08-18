@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       Don_Vang_Thi.hasMany(models.Lich_Thi, {
         foreignKey: "DONVANGTHI_ID",
+        allowNull: false,
       });
     }
   }

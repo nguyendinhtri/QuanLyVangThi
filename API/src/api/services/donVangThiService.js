@@ -174,6 +174,36 @@ const donVangThiService = {
       }
     });
   },
+  uploadMinhChung: async (DONVANGTHI_ID, uploadFile) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Kiểm tra xem đơn vắng thi có tồn tại không
+        const existDonVangThi = await db.Don_Vang_Thi.findOne({
+          where: {
+            id: DONVANGTHI_ID,
+          },
+        });
+        if (!existDonVangThi)
+          throw createError.NotFound("Don Vang Thi not found");
+
+        // Tạo một bản ghi mới trong bảng lưu trữ minh chứng (nếu có)
+        const uploadMinhChung = await db.Don_Vang_Thi.update(
+          {
+            MINH_CHUNG: uploadFile.filename,
+          },
+          {
+            where: { id: DONVANGTHI_ID },
+          }
+        );
+        resolve({
+          status: 200,
+          message: "Upload minh chứng thành công",
+        });
+      } catch (error) {
+        reject(error);
+      }
+    });
+  },
 };
 
 module.exports = donVangThiService;

@@ -86,6 +86,30 @@ const donVangThiController = {
       next(error);
     }
   },
+  uploadMinhChung: async (req, res, next) => {
+    try {
+      const id = req.body.DONVANGTHI_ID; // Lấy ID của đơn vắng thi từ request body
+      if (!id) {
+        return res.status(404).json("Id not found"); // Kiểm tra xem ID có tồn tại hay không
+      }
+
+      console.log(req.file); // Log file upload để kiểm tra
+
+      // Gọi hàm uploadMinhChung trong service để thực hiện việc upload minh chứng
+      const { status, message } = await donVangThiService.uploadMinhChung(
+        id,
+        req.file
+      );
+
+      // Trả về kết quả thành công
+      return res.status(status).json({
+        status,
+        message,
+      });
+    } catch (error) {
+      next(error); // Xử lý lỗi bằng middleware
+    }
+  },
 };
 
 module.exports = donVangThiController;

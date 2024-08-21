@@ -36,26 +36,7 @@ const lichThiService = {
       }
     });
   },
-  getAllByQueryLichThi: async (query) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const response = await db.Lich_Thi.findAll({
-          where: {
-            ...query,
-          },
-        });
-        resolve({
-          status: response ? 200 : 404,
-          message: response
-            ? "Get list of LichThi successfully by query"
-            : "Error while getting list of LichThi by query",
-          elements: response,
-        });
-      } catch (error) {
-        reject(error);
-      }
-    });
-  },
+
   getIdLichThi: async (lichThiId) => {
     return new Promise(async (resolve, reject) => {
       try {

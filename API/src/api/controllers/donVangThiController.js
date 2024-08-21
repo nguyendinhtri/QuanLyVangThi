@@ -22,16 +22,7 @@ const donVangThiController = {
       next(error);
     }
   },
-  getAllByQueryDonVangThi: async (req, res, next) => {
-    try {
-      const query = req.body;
-      const { status, message, elements } =
-        await donVangThiService.getAllByQueryDonVangThi(query);
-      res.status(status).json(createSuccess(status, message, elements));
-    } catch (error) {
-      next(error);
-    }
-  },
+
   getIdDonVangThi: async (req, res, next) => {
     try {
       const { id } = req.params;

@@ -48,26 +48,7 @@ const donVangThiService = {
       }
     });
   },
-  getAllByQueryDonVangThi: async (query) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const response = await db.Don_Vang_Thi.findAll({
-          where: {
-            ...query,
-          },
-        });
-        resolve({
-          status: response ? 200 : 404,
-          message: response
-            ? "Get list of DonVangThi successfully by query"
-            : "Error while getting list of DonVangThi by query",
-          elements: response,
-        });
-      } catch (error) {
-        reject(error);
-      }
-    });
-  },
+
   getIdDonVangThi: async (donVangThiId) => {
     return new Promise(async (resolve, reject) => {
       try {
@@ -186,7 +167,6 @@ const donVangThiService = {
         if (!existDonVangThi)
           throw createError.NotFound("Don Vang Thi not found");
 
-        // Tạo một bản ghi mới trong bảng lưu trữ minh chứng (nếu có)
         const uploadMinhChung = await db.Don_Vang_Thi.update(
           {
             MINH_CHUNG: uploadFile.filename,

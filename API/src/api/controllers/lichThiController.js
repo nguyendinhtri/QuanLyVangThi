@@ -23,16 +23,7 @@ const lichThiController = {
       next(error);
     }
   },
-  getAllByQueryLichThi: async (req, res, next) => {
-    try {
-      const query = req.body;
-      const { status, message, elements } =
-        await lichThiService.getAllByQueryLichThi(query);
-      res.status(status).json(createSuccess(status, message, elements));
-    } catch (error) {
-      next(error);
-    }
-  },
+
   getIdLichThi: async (req, res, next) => {
     try {
       const { id } = req.params;

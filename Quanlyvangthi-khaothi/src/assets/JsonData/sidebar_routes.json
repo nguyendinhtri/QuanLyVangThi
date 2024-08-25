@@ -5,11 +5,11 @@
     },
     {
         "display_name": "Thông tin sinh viên",
-        "route": "/customers"
+        "route": "/ttsinhvien"
     },
     {
-        "display_name": "Thông Báo",
-        "route": "/products"
+        "display_name": "Lịch thi tổng hợp",
+        "route": "/lichthitonghop"
         
     }
 ]

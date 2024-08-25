@@ -1,52 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Toggle.css'; // Import file CSS
+import { updateDonVangThi } from '../../api/donvangthiService'; // Import hàm updateDonVangThi
 
-function ToggleSwitch() {
-  const [buttonContent, setButtonContent] = useState('Accept');
+function ToggleSwitch({ donVangThiId, currentStatus, onUpdate }) {
+  const [buttonContent, setButtonContent] = useState(currentStatus || 'Accept');
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleClick = () => {
-    if (buttonContent === 'Accept') {
-      setButtonContent('Ignore');
-      setShowConfirmation(true); // Hiển thị hộp thoại xác nhận
-    } else {
-      setButtonContent('Accept');
-      setShowConfirmation(false); // Ẩn hộp thoại xác nhận
+  useEffect(() => {
+    setButtonContent(currentStatus || 'Accept');
+  }, [currentStatus]);
+
+  const handleClick = async () => {
+    setLoading(true);
+    const newStatus = buttonContent === 'Accept' ? 'Ignore' : 'Accept';
+    try {
+      await updateDonVangThi({ id: donVangThiId, TRANG_THAI: newStatus });
+      setButtonContent(newStatus);
+      setShowConfirmation(false);
+      if (onUpdate) {
+        onUpdate(donVangThiId, newStatus);
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
+  const handleConfirmation = () => {
+    setShowConfirmation(true);
+  };
+
   const handleClose = () => {
-    setShowConfirmation(false); // Đóng hộp thoại xác nhận
+    setShowConfirmation(false);
   };
 
   return (
     <div>
       <button 
         className={`toggle-button ${buttonContent === 'Ignore' ? 'ignore' : ''}`}
-        onClick={handleClick}
+        onClick={handleConfirmation}
+        disabled={loading}
       >
         {buttonContent}
       </button>
 
-      {/* Hiển thị nội dung khi buttonContent là "Accept" */}
-      {buttonContent === 'Accept' && (
-        console.log("1")
-      )}
-
-      {/* Hiển thị nội dung khi buttonContent là "Ignore" */}
-      {buttonContent === 'Ignore' && (
-        console.log("1")
-      )}
-
-      {/* Hộp thoại xác nhận */}
       {showConfirmation && (
         <div className="modal">
           <div className="modal-content">
-            <p>You have selected Ignore. Are you sure?</p>
+            <p>Bạn có chắc chắn về lựa chọn của mình không?</p>
+            <button onClick={handleClick} className="confirm-button">Confirm</button>
             <button onClick={handleClose} className="close-button">Close</button>
           </div>
         </div>
       )}
+
+      {error && <p className="error-message">Lỗi: {error}</p>}
     </div>
   );
 }

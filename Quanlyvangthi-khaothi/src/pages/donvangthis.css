@@ -1,0 +1,59 @@
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.info-row h2 {
+    margin: 10px 0;
+    font-size: 24px;
+    font-weight: normal;
+    font-weight: bold;
+    color: #555;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+}
+
+.card__body {
+    padding: 10px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+
+
+.info-row  h1 {
+    margin: 10px 0; /* Tạo khoảng cách trên và dưới */
+    font-size: 30px;
+    color: #444;
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Căn chỉnh nội dung về phía bên phải */
+    margin-top: 20px; /* Khoảng cách trên nút bấm (tuỳ chọn) */
+}

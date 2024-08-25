@@ -26,7 +26,7 @@ const renderBody = (item, index) => (
     </tr>
 );
 
-const Products = () => {
+const Lichthitonghop = () => {
     const { lichThiData, loading, error } = useFetchAllLichThi();
 
     if (loading) return <p>Đang tải...</p>;
@@ -54,4 +54,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Lichthitonghop;

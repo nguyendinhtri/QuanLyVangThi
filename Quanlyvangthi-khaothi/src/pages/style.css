@@ -5,7 +5,7 @@
     color: white;          /* Màu chữ */
     border-radius: 10px;   /* Đặt giá trị bo góc */
     font-size: 14px;       /* Cỡ chữ */
-    transition: 0.3s;
+    transition: 0.5s;
 }
 #butt button:hover{
     background-color: #3e8e41;

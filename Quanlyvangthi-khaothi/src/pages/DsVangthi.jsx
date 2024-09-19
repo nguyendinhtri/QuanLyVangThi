@@ -17,14 +17,15 @@ const TableHead = [
     'Cập Nhật Trạng Thái' // Thêm cột mới cho nút cập nhật trạng thái
 ];
 
-const renderHead = (item, index) => <th key={index}>{item}</th>;
+
 
 const Dashboard = () => {
     const { donVangThiData, loading, error } = useFetchAllDonVangThi();
+    const renderHead = (item, index) => <th key={index}>{item}</th>;
 
     const renderBody = (item, index) => (
-        <tr key={index}>
-            <td>{item.USER_ID}</td>
+        <tr key={index} onClick={() => handleUserClick(donVangThiData)}>
+            <td>{index + 1}</td>
             {item.User && (
                 <>
                     <td>{item.User.FULLNAME}</td>
@@ -42,6 +43,12 @@ const Dashboard = () => {
         </tr>
     );
 
+    const handleUserClick = () => {
+        console.log(donVangThiData)
+
+        // Thực hiện hành động tương ứng với sự kiện click
+    };
+    
     if (loading) return <p>Đang tải...</p>;
     if (error) return <p>Lỗi: {error}</p>;
 
@@ -63,12 +70,13 @@ const Dashboard = () => {
                         </div>
 
                         <div className="card__body">
-                            <Table
+                            <Table 
                                 limit="10"
                                 headData={TableHead}
                                 renderHead={(item, index) => renderHead(item, index)}
                                 bodyData={donVangThiData}
                                 renderBody={(item, index) => renderBody(item, index)}
+                                
                             />
                         </div>
                         <div className="card__footer">

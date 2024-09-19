@@ -1,10 +1,7 @@
 [
+    
     {
         "display_name": "Danh sách xin vắng thi",
-        "route": "/"
-    },
-    {
-        "display_name": "Thông tin sinh viên",
         "route": "/ttsinhvien"
     },
     {

@@ -1,0 +1,100 @@
+
+
+#header{
+    margin-bottom: 2%;
+}
+#butt button {
+    display: inline-block; /* Đảm bảo label là khối inline để có thể bo góc */
+    padding: 10px 15px;    /* Thêm padding để tạo khoảng cách bên trong label */
+    background-color: #4c6daf; /* Màu nền cho label */
+    color: white;          /* Màu chữ */
+    border-radius: 10px;   /* Đặt giá trị bo góc */
+    font-size: 14px;       /* Cỡ chữ */
+    transition: 0.5s;
+    margin-right: auto;
+}
+#butt button:hover{
+    background-color: #3e8e41;
+}
+table {
+    width: 100%;
+    border-collapse: separate; /* Để các ô trong bảng không dính nhau, cần thiết cho việc bo góc */
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 10px; /* Bo góc cho toàn bộ bảng */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho bảng */
+}
+
+thead th {
+    background-color: #f4f4f4; /* Màu nền cho phần đầu bảng */
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+tbody tr {
+    background-color: #ffffff; /* Màu nền cho các hàng */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Màu nền cho các hàng chẵn */
+}
+
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: var(--main-color);
+    color: var(--txt-white); /* Màu nền khi hover trên hàng */
+}
+
+/* Bo góc riêng cho các góc của bảng */
+table tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+
+table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+/* Đảm bảo rằng bảng phản hồi trên các thiết bị di động */
+@media screen and (max-width: 600px) {
+    table thead {
+        display: none;
+    }
+
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table tr {
+        margin-bottom: 15px;
+    }
+
+    table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}

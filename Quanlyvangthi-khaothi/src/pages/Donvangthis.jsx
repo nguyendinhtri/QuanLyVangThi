@@ -40,7 +40,7 @@ const Donvangthis = () => {
         switch (trangThai) {
             case 'Chờ duyệt':
                 return 'orange';
-            case 'Đã duyệt':
+            case 'Duyệt':
                 return 'green';
             case 'Bị từ chối':
                 return 'red';
@@ -131,7 +131,7 @@ const Donvangthis = () => {
             </div>
             <div>
                 <h1>Minh Chứng:</h1>
-                {/* <img src={`http://localhost:8345/uploads/${donVangThiData[0]?.MINH_CHUNG}`} alt="Uploaded" style={{ width: '300px', height: 'auto', border: '2px solid #000' }} /> */}
+                <img src={`http://localhost:8345/uploads/${donVangThiData[0]?.MINH_CHUNG}`} alt="Uploaded" style={{ width: '300px', height: 'auto', border: '2px solid #000' }} />
             </div>
 
             <div id="butt" className='button-container'>
